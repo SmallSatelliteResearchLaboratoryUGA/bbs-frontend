@@ -1,0 +1,53 @@
+.lg2s_logo {
+    width: 150px;
+    height: 30px;
+    margin-top: 4px;
+}
+.meme1_logo {
+    height: 40px;
+    width: 40px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    
+}
+.logos {
+    float: left;
+    display: flex;
+}
+.logos > * {
+    margin-left: 20px;
+}
+
+.redirects {
+    float: right;
+    width: fit-content;
+    display: flex;
+}
+.redirects > * {
+    margin-right: 20px;
+}
+.link {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    font-size: 1.2rem;
+    /*border: 2px solid #3498db;*/
+    border-radius: 4px;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.link:hover {
+    color: #2980b9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.link:focus {
+    /*outline: 2px solid #2980b9;*/
+    outline-offset: 2px;
+}

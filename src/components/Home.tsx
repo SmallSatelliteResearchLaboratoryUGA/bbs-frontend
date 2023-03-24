@@ -1,18 +1,15 @@
 import React from 'react';
-import styled from "styled-components";
+import styles from "./Home.module.css"
+
+
 const Home: React.FC = () => {
-  return (
-    <HomePageDiv>
-      <h1>Welcome to the Bulletin Board</h1>
-      <p>Click on "Posts" to view all posts or "New Post" to create a new one.</p>
-    </HomePageDiv>
-  );
-};
+    return (
+      <div className={styles.home}>
+        <h1 className={styles.title}>Welcome to the MEMESat-1 Bulletin Board</h1>
+        <p className={styles.subtitle}>Explore the universe with us!</p>
+      </div>
+    );
+  };
 
-
-
-const HomePageDiv = styled.div`
-    
-`
 
 export default Home;
