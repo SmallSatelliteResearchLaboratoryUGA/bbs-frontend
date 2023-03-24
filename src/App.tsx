@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Posts from './components/Posts';
@@ -7,7 +8,7 @@ import NewPost from './components/NewPost';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -15,7 +16,7 @@ function App() {
         <Route path="/post/:id" element={<Post />} />
         <Route path="/new-post" element={<NewPost />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

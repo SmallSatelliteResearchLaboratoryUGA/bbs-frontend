@@ -1,12 +1,18 @@
 import React from 'react';
-
+import styled from "styled-components";
 const Home: React.FC = () => {
   return (
-    <div>
+    <HomePageDiv>
       <h1>Welcome to the Bulletin Board</h1>
       <p>Click on "Posts" to view all posts or "New Post" to create a new one.</p>
-    </div>
+    </HomePageDiv>
   );
 };
+
+
+
+const HomePageDiv = styled.div`
+    
+`
 
 export default Home;
