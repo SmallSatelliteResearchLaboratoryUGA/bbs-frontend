@@ -1,6 +1,9 @@
 
 export interface Post {
-    id: number;
-    title: string;
-    content: string;
+    id?: number,
+    title: string,
+    name: string,
+    callsign: string,
+    content: string,
+    created_at?: Date,
   }

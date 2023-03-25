@@ -10,11 +10,18 @@ const Post: React.FC = () => {
   // Fetch post by ID (replace with a real API call)
   useEffect(() => {
     // Simulate fetching a single post
-    const dummyPost: PostType = { id: 1, title: 'Post 1', content: 'This is the first post.' };
-
-    if (Number(id) === dummyPost.id) {
-      setPost(dummyPost);
+    async function getPost() {
+      const response = await fetch(`http://localhost:8000/posts/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      let new_post: PostType = await response.json();
+      console.log(new_post);
+      setPost(new_post);
     }
+    getPost();
   }, [id]);
 
   if (!post) {

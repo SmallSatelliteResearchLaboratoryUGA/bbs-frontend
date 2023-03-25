@@ -37,7 +37,6 @@ nav {
     color: #3498db;
     font-weight: bold;
     font-size: 1.2rem;
-    /*border: 2px solid #3498db;*/
     border-radius: 4px;
     transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }

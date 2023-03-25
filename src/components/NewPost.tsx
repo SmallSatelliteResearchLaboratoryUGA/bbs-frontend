@@ -3,18 +3,32 @@ import { useNavigate} from 'react-router-dom';
 
 const NewPost: React.FC = () => {
   const [title, setTitle] = useState('');
+  const [name, setName] = useState('');
+  const [callsign, setCallsign] = useState('');
   const [content, setContent] = useState('');
   const history = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     // Save the new post (replace with a real API call)
     // replace the console.log statement with an API call 
     //to save the new post to your backend server. 
     //After the API call is complete, you can redirect the user to the appropriate page,
     // such as the list of posts or the newly created post's detail page.
-    console.log('New post:', { title, content });
-
+    console.log('New post:', { title, name, callsign, content });
+    try {
+      const response = await fetch('http://localhost:8000/posts', {
+        method: "POST", 
+        body: JSON.stringify({title: title, name: name, callsign: callsign, content: content}),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      // Handle the response data
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
     // Redirect to the posts page after successful submission
     history('/posts');
   };
@@ -31,6 +45,22 @@ const NewPost: React.FC = () => {
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
+        </div>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            id="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="callsign">Callsign:</label>
+          <input
+            id="callsign"
+            value={callsign}
+            onChange={(event) => setCallsign(event.target.value)}
+          ></input>
         </div>
         <div>
           <label htmlFor="content">Content:</label>
