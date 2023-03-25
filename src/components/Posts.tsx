@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Post } from '../types';
 import StickyNote from './StickyNote';
-import './Posts.css'
+import '../styles/Posts.css'
 
 const Posts: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);

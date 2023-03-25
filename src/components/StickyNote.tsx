@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Post } from '../types';
-import './StickyNote.css';
+import '../styles/StickyNote.css';
 
 const StickyNote = (props: any) => {
     const {post} = props as {post: Post};

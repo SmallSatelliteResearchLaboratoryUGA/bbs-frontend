@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Posts from './components/Posts';
 import Post from './components/Post';
 import NewPost from './components/NewPost';
+import LoginAndRegister from './components/LoginAndRegister';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/posts" element={<Posts />} />
         <Route path="/post/:id" element={<Post />} />
         <Route path="/new-post" element={<NewPost />} />
+        <Route path="/login" element={<LoginAndRegister />} />
       </Routes>
     </BrowserRouter>
   );

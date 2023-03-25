@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
-import "./NewPost.css"
+import "../styles/NewPost.css"
 
 const NewPost: React.FC = () => {
   const [title, setTitle] = useState('');
