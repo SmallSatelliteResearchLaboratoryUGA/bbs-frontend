@@ -1,0 +1,29 @@
+.sticky-note-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 16px;
+  }
+
+.title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 48px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+    letter-spacing: 0.5em;
+}
+
+.posts-page {
+    background-image: url('../assets/wood-board-background_1339-5418.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

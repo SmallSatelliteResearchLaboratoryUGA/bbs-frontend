@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Post } from '../types';
+import StickyNote from './StickyNote';
+import './Posts.css'
 
 const Posts: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -26,16 +27,15 @@ const Posts: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Posts</h1>
-      {loading ? null : posts.map((post) => (
-        <div key={post.id}>
-          <h2>
-            <Link to={`/post/${post.id}`}>{post.title}</Link>
-          </h2>
-          <p>{post.content}</p>
-        </div>
-      ))}
+    <div className='posts-page'>
+      <h1 className='title'>Posts</h1>
+      <div className='sticky-note-container'>
+        {loading ? null : posts.map((post) => (
+          <div key={post.id}>
+            <StickyNote post={post} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
+import "./NewPost.css"
 
 const NewPost: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -34,42 +35,44 @@ const NewPost: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={"new-post-page"}>
       <h1>Create a New Post</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className={"submit-form"}>
+        
           <label htmlFor="title">Title:</label>
           <input
             type="text"
             id="title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
+            required
           />
-        </div>
-        <div>
+       
+      
           <label htmlFor="name">Name:</label>
           <input
             id="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
+            required
           ></input>
-        </div>
-        <div>
+        
           <label htmlFor="callsign">Callsign:</label>
           <input
             id="callsign"
             value={callsign}
             onChange={(event) => setCallsign(event.target.value)}
+            required
           ></input>
-        </div>
-        <div>
+        
           <label htmlFor="content">Content:</label>
           <textarea
             id="content"
             value={content}
             onChange={(event) => setContent(event.target.value)}
+            required
           ></textarea>
-        </div>
+        
         <button type="submit">Submit</button>
       </form>
     </div>

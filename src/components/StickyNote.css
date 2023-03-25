@@ -1,0 +1,29 @@
+.sticky-note {
+    width: 200px;
+    min-height: 200px;
+    padding: 10px;
+    background-color: #ffeb3b;
+    border: 1px solid #fdd835;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+}
+
+.sticky-note-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.sticky-note-content {
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.sticky-note-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sticky-note-link:visited {
+  color: inherit;
+}
