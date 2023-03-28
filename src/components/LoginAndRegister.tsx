@@ -4,16 +4,15 @@ import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import { useState } from 'react';
 import { storeToken } from './Security';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+import { useNavigate } from "react-router-dom"
 
 const LoginAndRegister: React.FC = () => {
   const {login} = useAuth();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -35,7 +34,7 @@ const LoginAndRegister: React.FC = () => {
         await storeToken(data.token);
         // handle when token not found
         login(data.token);
-        history('/');
+        navigate('/')
     } 
     catch (error) {
         console.error("Error logging in:", error);
@@ -63,7 +62,7 @@ const LoginAndRegister: React.FC = () => {
         console.log("User registered successfully:", data);
         login(data.token)
         // Handle redirection or user interface update after successful registration
-  
+        navigate('/')
       } catch (error) {
         console.error("Error registering user:", error);
         // Show an error message to the user
