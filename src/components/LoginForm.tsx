@@ -1,38 +1,16 @@
 import React, { useState } from "react";
-import "../styles/LoginAndRegisterForm.css";
-import { storeToken } from "./Security";
-import { useNavigate } from 'react-router-dom';
+import "../styles/LoginAndRegister.css";
 
-const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const history = useNavigate();
+interface LoginFormProps {
+    handleLogin: (e: React.FormEvent) => Promise<void>;
+    email: string;
+    setEmail: (email: string) => void;
+    password: string;
+    setPassword: (password: string) => void;
+  }
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-        const response = await fetch("http://localhost:8000/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        });
-  
-        if (!response.ok) {
-          throw new Error("Invalid email or password.");
-        }
-  
-        const data = await response.json();
-        // Save the token and handle redirection or user interface update
-        await storeToken(data.token)
-        history('/');
-      } catch (error) {
-        console.error("Error logging in:", error);
-        // Show an error message to the user
-      }
-  };
-
+const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
+  const {handleLogin, email, setEmail, password, setPassword} = props
   return (
     <div className={"form-container"}>
       <div className={"form-box"}>

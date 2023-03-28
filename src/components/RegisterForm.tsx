@@ -1,35 +1,17 @@
 import React, { useState } from "react";
-import "../styles/LoginAndRegisterForm.css";
+import "../styles/LoginAndRegister.css";
 
-const RegisterForm: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-        const response = await fetch("http://localhost:8000/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        });
-  
-        if (!response.ok) {
-          throw new Error("Error registering user.");
-        }
-  
-        const data = await response.json();
-        console.log("User registered successfully:", data);
-        // Handle redirection or user interface update after successful registration
-  
-      } catch (error) {
-        console.error("Error registering user:", error);
-        // Show an error message to the user
-      }
-  
-  };
+interface RegisterFormProps {
+  handleRegister: (e: React.FormEvent) => Promise<void>;
+  email: string;
+  setEmail: (email: string) => void;
+  password: string;
+  setPassword: (password: string) => void;
+}
+
+const RegisterForm: React.FC<RegisterFormProps> = (props: RegisterFormProps) => {
+  const {handleRegister, email, setEmail, password, setPassword} = props
 
   return (
     <div className={"form-container"}>

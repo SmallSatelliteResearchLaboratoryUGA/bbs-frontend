@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "../styles/NewPost.css"
+import { retrieveToken } from './Security';
 
 const NewPost: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -16,13 +17,16 @@ const NewPost: React.FC = () => {
     //to save the new post to your backend server. 
     //After the API call is complete, you can redirect the user to the appropriate page,
     // such as the list of posts or the newly created post's detail page.
-    console.log('New post:', { title, name, callsign, content });
     try {
+      const token = await retrieveToken()
+      if (!token) return;
       const response = await fetch('http://localhost:8000/posts', {
         method: "POST", 
         body: JSON.stringify({title: title, name: name, callsign: callsign, content: content}),
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
+
         },
       });
       const data = await response.json();
