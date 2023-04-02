@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { retrieveToken, storeToken } from './components/Security';
+import { retrieveToken, storeToken, autoLogin } from './components/Security';
 interface AuthState {
   isLoggedIn: boolean;
   login: (token: string) => void;
@@ -22,8 +22,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     async function attemptLogin() {
       // Check for an existing token and update the state accordingly
       try{
-        const token = await retrieveToken();
-        setIsLoggedIn(!!token);
+        setIsLoggedIn(await autoLogin());
       }
       catch (error: any) {
         setIsLoggedIn(false);
