@@ -23,6 +23,7 @@ function VerifyPostsPage() {
       setPosts(data);
       setLoading(false);
     };
+    fetchPosts();
     /*fetch('')
       .then((res) => res.json())
       .then((data) => setPosts(data));*/
