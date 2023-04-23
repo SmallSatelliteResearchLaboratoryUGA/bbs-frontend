@@ -2,12 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Checkbox, Container, Grid, Typography } from '@mui/material';
 import { Post } from '../../types';
+import {useAuth} from '../../AuthContext';
 
 function VerifyPostsPage() {
   const [Posts, setPosts] = useState<Post[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
   const history = useNavigate();
+  const { role_id } = useAuth();
+
+  if (role_id !== 2) {
+    return <h1>Access denied</h1>;
+  }
 
   useEffect(() => {
     // Fetch Posts from backend and update state
