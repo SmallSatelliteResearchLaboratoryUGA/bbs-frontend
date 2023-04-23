@@ -6,7 +6,7 @@ import MEMESat_1_Logo from '../assets/MEMESAT-1.png'
 import { useAuth } from '../AuthContext';
 
 const Navbar: React.FC = () => {
-    const {isLoggedIn, logout} = useAuth();
+    const {isLoggedIn, logout, role_id} = useAuth();
 
     return (
         <nav>
@@ -26,6 +26,11 @@ const Navbar: React.FC = () => {
                 {isLoggedIn && (
                     <div>
                         <Link to="/new-post" className={"link"}>New Post</Link>
+                    </div>
+                )}
+                {role_id === 2 && (
+                    <div>
+                        <Link to="/admin" className='link'>Admin</Link>
                     </div>
                 )}
                 {isLoggedIn ? (

@@ -4,12 +4,16 @@ const backend_url = `http://localhost:8000`;
 
 interface AuthState {
   isLoggedIn: boolean;
+  role_id: number;
+  setRoleId: (id: number) => void;
   login: (token: string) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthState>({
   isLoggedIn: false,
+  role_id: 1,
+  setRoleId: ()=>{},
   login: () => {},
   logout: () => {},
 });
@@ -19,6 +23,7 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [role_id, setRoleId] = useState(1);
 
   useEffect(() => {
     async function attemptLogin() {
@@ -61,12 +66,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   };
 
   async function autoLoginUser(token: string) {
-    console.log("before")
-    //const {login} = useAuth();
-    console.log("after")
-    //console.log("waiting fetch from autologinuser")
-    
-    console.log("waiting fetch from autologinuser")
     const response = await fetch(`${backend_url}/auto-login`, {
       method: "GET",
       headers: {
@@ -75,14 +74,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         'Authorization': token,
       }
     });
-    console.log("waiting fetch from autologinuser")
     if (response.ok) {
-      console.log("Auto login successful");
-      // TODO: Handle successful login
+      // Handle successful login
       storeToken(token);
-      console.log("before")
       login(token);
-      console.log("after")
     } else {
       console.log("Auto login failed");
       console.log(await response.json())
@@ -152,7 +147,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   }
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, role_id, setRoleId, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

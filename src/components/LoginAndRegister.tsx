@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "../styles/LoginAndRegister.css"
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
@@ -12,12 +12,13 @@ const LoginAndRegister: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const { setRoleId } = useAuth();
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
         const response = await fetch("http://localhost:8000/user", {
-            method: "GET",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -32,6 +33,9 @@ const LoginAndRegister: React.FC = () => {
         const data = await response.json();
         // Save the token and handle redirection or user interface update
         await storeToken(data.token);
+        if (data.role_id) {
+          setRoleId(data.role_id);
+        }
         // handle when token not found
         login(data.token);
         navigate('/')
