@@ -1,5 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { retrieveToken, storeToken } from './components/Security';
+const backend_url = `http://localhost:8000`;
+
 interface AuthState {
   isLoggedIn: boolean;
   login: (token: string) => void;
@@ -20,6 +22,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
 
   useEffect(() => {
     async function attemptLogin() {
+      autoLogin();
       // Check for an existing token and update the state accordingly
       try{
         const token = await retrieveToken();
@@ -45,7 +48,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${token}`,
+            'Authorization': token,
         },
       });
     }
@@ -56,6 +59,97 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     localStorage.removeItem('encryptedToken');
     setIsLoggedIn(false);
   };
+
+  async function autoLoginUser(token: string) {
+    console.log("before")
+    //const {login} = useAuth();
+    console.log("after")
+    //console.log("waiting fetch from autologinuser")
+    
+    console.log("waiting fetch from autologinuser")
+    const response = await fetch(`${backend_url}/auto-login`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        'credentials': 'include',
+        'Authorization': token,
+      }
+    });
+    console.log("waiting fetch from autologinuser")
+    if (response.ok) {
+      console.log("Auto login successful");
+      // TODO: Handle successful login
+      storeToken(token);
+      console.log("before")
+      login(token);
+      console.log("after")
+    } else {
+      console.log("Auto login failed");
+      console.log(await response.json())
+      // TODO: Handle failed login
+    }
+  }
+
+  async function autoLogin() {
+    const token = localStorage.getItem("encryptedToken");
+  
+    if (token) {
+      const keyJson = sessionStorage.getItem("encryptionKey");
+      const key = keyJson ? JSON.parse(keyJson) : null;
+      //console.log('Key JSON:', keyJson); // Add this line to debug the key JSON
+      if (key) {
+        try {
+          const cryptoKey = await importEncryptionKey(key);
+          //console.log(cryptoKey)
+          const decryptedToken = await decryptToken(cryptoKey, token);
+          console.log("waiting fetch from autologinuser")
+          //console.log(decryptedToken)
+          await autoLoginUser(decryptedToken);
+        } catch (err: any) {
+          console.error("Auto login error:", err, err.message);
+          // TODO: Handle login error
+        }
+      }
+    } else {
+      console.log("no token! :-)");
+    }
+  }
+
+  async function importEncryptionKey(key: JsonWebKey) {
+    return await window.crypto.subtle.importKey(
+      "jwk",
+      key,
+      { name: "AES-GCM" },
+      false,
+      ["decrypt"]
+    );
+  }
+  
+  async function decryptToken(cryptoKey: CryptoKey, token: string) {
+    const encryptedBytes = base64ToBuffer(token);
+    const decryptedBytes = await window.crypto.subtle.decrypt(
+      {
+        name: "AES-GCM",
+        iv: encryptedBytes.slice(0, 12),
+      },
+      cryptoKey,
+      encryptedBytes.slice(12)
+    );
+    return new TextDecoder().decode(decryptedBytes);
+  }
+  
+  
+  
+  
+  // Base64 to ArrayBuffer decoding
+  function base64ToBuffer(base64: string) {
+    const byteString = atob(base64);
+    const byteArray = new Uint8Array(byteString.length);
+    for (let i = 0; i < byteString.length; i++) {
+      byteArray[i] = byteString.charCodeAt(i);
+    }
+    return byteArray.buffer;
+  }
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, login, logout }}>

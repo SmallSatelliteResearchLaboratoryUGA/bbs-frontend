@@ -16,9 +16,8 @@ const Posts: React.FC = () => {
           "Content-Type": "application/json"
         }
       });
-      console.log(res)
-      const data = await res.json();
-      console.log(data);
+      const data: Post[] = JSON.parse(await res.json());
+      console.log("Data for posts object: " + data);
       setPosts(data);
       setLoading(false);
     };
@@ -30,7 +29,7 @@ const Posts: React.FC = () => {
     <div className='posts-page'>
       <h1 className='title'>Posts</h1>
       <div className='sticky-note-container'>
-        {loading ? null : posts.map((post) => (
+        {loading || posts.length === 0 ? null : posts.map((post) => (
           <div key={post.id}>
             <StickyNote post={post} />
           </div>
