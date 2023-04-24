@@ -18,7 +18,7 @@ function VerifyPostsPage() {
   useEffect(() => {
     // Fetch Posts from backend and update state
     const fetchPosts = async () => {
-      const res = await fetch('http://localhost:8000/posts', {
+      const res = await fetch('http://localhost:8000/admin/unverified-posts', {
         method: "GET",
         headers: {
           "Content-Type": "application/json"
@@ -30,9 +30,6 @@ function VerifyPostsPage() {
       setLoading(false);
     };
     fetchPosts();
-    /*fetch('')
-      .then((res) => res.json())
-      .then((data) => setPosts(data));*/
   }, []);
 
   function handleCheckboxChange(id: number) {
