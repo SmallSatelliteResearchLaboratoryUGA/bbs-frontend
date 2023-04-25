@@ -1,22 +1,22 @@
 .home {
-    background-image: url("../assets/fdb21c0e4f3dbb6ccd9a63c68fce8645.gif");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  }
-  
-  .home-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .home-subtitle {
-    font-size: 1.5rem;
-  }
+  background-image: url("../assets/fdb21c0e4f3dbb6ccd9a63c68fce8645.gif");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.home-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+}

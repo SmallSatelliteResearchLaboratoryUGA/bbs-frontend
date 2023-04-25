@@ -3,6 +3,8 @@ import {useAuth} from '../../AuthContext';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import '../../styles/Admin/AdminHomePage.css';
 import { Link } from 'react-router-dom';
+import MEMESat_1_Logo from '../../assets/MEMESAT-1.png'
+
 
 function AdminHomePage() {
   const { role_id } = useAuth();
@@ -13,15 +15,17 @@ function AdminHomePage() {
 
   return (
     <div className={"root"}>
-      <Container maxWidth="md" className={"container"}>
+      <img src={MEMESat_1_Logo} className='admin-home-memelogo'/>
+
+      <Container maxWidth="md" className={"admin-home-container"}>
         <Grid container spacing={4}>
-          <Grid item xs={12} className={"title"}>
+          <Grid item xs={12} className={"admin-home-title"}>
             <Typography variant="h4" align="center">
               Admin Dashboard
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <div className={"section"}>
+            <div className={"admin-home-section"}>
               <Typography variant="h5" align="center">
                 Verify
               </Typography>
@@ -29,7 +33,7 @@ function AdminHomePage() {
                 variant="contained"
                 color="primary"
                 size="large"
-                className={"button"}
+                className={"admin-home-button"}
                 component={Link}
                 to="/admin/verify-posts"
               >
@@ -39,10 +43,25 @@ function AdminHomePage() {
                 variant="contained"
                 color="primary"
                 size="large"
-                className={"button"}
+                className={"admin-home-button"}
                 onClick={() => console.log('Verify Image Submissions')}
               >
                 Verify Image Submissions
+              </Button>
+            </div>
+            <div className={"admin-home-section"}>
+              <Typography variant="h5" align="center">
+                User Management
+              </Typography>
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                className={"admin-home-button"}
+                component={Link}
+                to="/admin/users"
+              >
+                Users
               </Button>
             </div>
           </Grid>

@@ -7,3 +7,10 @@ export interface Post {
     content: string,
     created_at?: Date,
   }
+
+export interface User {
+  id: number;
+  username: string;
+  role_id: number;
+  email: string;
+}

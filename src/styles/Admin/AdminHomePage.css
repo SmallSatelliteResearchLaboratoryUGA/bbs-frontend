@@ -1,24 +1,32 @@
-.container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 50px;
-  }
-  
-  .title {
-    margin-bottom: 1rem;
-  }
-  
-  .section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 10px;
-    margin-bottom: 2rem;
-  }
-  
-  .button {
-    margin-bottom: 1rem;
-    width: 100%;
-  }
+.admin-home-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.admin-home-title {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.admin-home-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.admin-home-button {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.admin-home-memelogo {
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}

@@ -17,6 +17,7 @@ const AuthContext = createContext<AuthState>({
   login: () => {},
   logout: () => {},
 });
+
 interface AuthProviderProps {
   children: React.ReactNode;
 }
@@ -48,6 +49,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const logout = async () => {
     try {
       const token = await retrieveToken();
+      sessionStorage.removeItem('encryptionKey');
+      localStorage.removeItem('encryptedToken');
+      setRoleId(1);
+      setIsLoggedIn(false);
       if (!token) return;
       const response = await fetch("http://localhost:8000/user/token", {
         method: "DELETE",
@@ -57,12 +62,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         },
       });
     }
-    catch {
-
+    catch(err){
+      console.log("Logout failed. " + err)
     }
-    sessionStorage.removeItem('encryptionKey');
-    localStorage.removeItem('encryptedToken');
-    setIsLoggedIn(false);
+    
   };
 
   async function autoLoginUser(token: string) {
@@ -78,6 +81,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
       // Handle successful login
       storeToken(token);
       login(token);
+      let json = await response.json();
+      if (json.role_id) {
+        setRoleId(json.role_id);
+      }
+      else {
+        console.log("No role id. " + json.role_id);
+      }
     } else {
       console.log("Auto login failed");
       console.log(await response.json())

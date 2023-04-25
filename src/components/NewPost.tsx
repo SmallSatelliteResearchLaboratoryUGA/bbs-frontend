@@ -18,14 +18,14 @@ const NewPost: React.FC = () => {
     //After the API call is complete, you can redirect the user to the appropriate page,
     // such as the list of posts or the newly created post's detail page.
     try {
-      const token = await retrieveToken()
+      const token = await retrieveToken();
       if (!token) return;
       const response = await fetch('http://localhost:8000/posts', {
         method: "POST", 
         body: JSON.stringify({title: title, name: name, callsign: callsign, content: content}),
         headers: {
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${token}`,
+          'Authorization': token,
         },
       });
       const data = await response.json();

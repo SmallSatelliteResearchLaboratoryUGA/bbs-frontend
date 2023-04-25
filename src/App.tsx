@@ -9,6 +9,7 @@ import LoginAndRegister from './components/LoginAndRegister';
 import AdminHomePage from './components/Admin/AdminHomePage'
 import { AuthProvider } from './AuthContext';
 import VerifyPostsPage from './components/Admin/VerifyPostsPage';
+import UsersPage from './components/Admin/UsersPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<LoginAndRegister />} />
           <Route path="/admin" element={<AdminHomePage />} />
           <Route path="/admin/verify-posts" element={<VerifyPostsPage />} />
+          <Route path="/admin/users" element={<UsersPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
