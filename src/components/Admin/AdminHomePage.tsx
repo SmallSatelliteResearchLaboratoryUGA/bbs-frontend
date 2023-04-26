@@ -14,7 +14,8 @@ function AdminHomePage() {
   }
 
   return (
-    <div className={"root"}>
+    <div className={"admin-home"}>
+      <div id="admin-home-background" />
       <img src={MEMESat_1_Logo} className='admin-home-memelogo'/>
 
       <Container maxWidth="md" className={"admin-home-container"}>
