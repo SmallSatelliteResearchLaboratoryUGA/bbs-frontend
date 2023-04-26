@@ -112,13 +112,10 @@
 #MEMESat-title {
   margin-bottom: 0px;
   left: 2vw;
-  top: -45px;
+  top: 0;
 }
 
-.MeetTheTeamContainer {
-  width: 100%;
-  min-height: 1000px;
-}
+
 .scroll-container {
   height: 100vh;
   overflow-y: scroll;
@@ -147,4 +144,25 @@
     top: 0;
     transform: translate(-50%, -100%);
   }
+}
+
+.MeetTheTeamContainer {
+  width: 100%;
+  position: absolute;
+  top: 600px;
+}
+#meet-the-team-title {
+  font-size: 6vw;
+  float: left;
+  left: 2vw;
+  width: fit-content;
+  transition: 50vw 1s linear;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+  font-style: italic;
+}
+#memeteam {
+  width: 20vw;
+  height: 20vw;
 }

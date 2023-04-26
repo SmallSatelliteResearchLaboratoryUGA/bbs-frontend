@@ -38,16 +38,16 @@ const Home: React.FC = () => {
 
   return (
     <div className={"home"}>
-      <div className="scroll-container">
+      {/*<div className="scroll-container">
         <div className="scroll-section" />
         <div className="scroll-section" />
-      </div>
+  </div>*/}
       <h1 className="home-title" id="MEMESat-title">
-        MEMESat-1
+        MEMESat-1 Bulletin Board
       </h1>
-      <h1 className='home-title' id={'bulletin-board'}>
+      {/*<h1 className='home-title' id={'bulletin-board'}>
         Bulletin Board
-      </h1>
+</h1>*/}
       <div className="earth" id="earth_img">
         <div className="orbit">
           <img src={memebeamer} className="moon" />
