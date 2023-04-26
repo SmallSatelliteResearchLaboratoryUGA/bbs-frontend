@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
                             overflow: hidden;
                             position: absolute;
                             background-color: #00000090;
-                            min-width: 100%;
+                            min-width: fit-content;
                             height: auto;
                             right: 0;
                             box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.2);
@@ -69,6 +69,7 @@ const Navbar: React.FC = () => {
                         }
                         .redirects {
                             display: block;
+                            min-width: fit-content;
                         }
 
                         .redirects > * {
@@ -77,7 +78,7 @@ const Navbar: React.FC = () => {
                         
                         .link {
                             display: block;
-                            background-color: #00000040;
+                            min-width: fit-content;
                         }
                     }
                     
