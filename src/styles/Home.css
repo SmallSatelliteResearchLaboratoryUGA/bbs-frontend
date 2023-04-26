@@ -4,6 +4,7 @@
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
+  height: 200vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -149,12 +150,13 @@
 .MeetTheTeamContainer {
   width: 100%;
   position: absolute;
-  top: 600px;
+  top: 120vh;
 }
 #meet-the-team-title {
   font-size: 6vw;
   float: left;
   left: 2vw;
+  margin-left: 2vw;
   width: fit-content;
   transition: 50vw 1s linear;
   color: transparent;
@@ -163,6 +165,6 @@
   font-style: italic;
 }
 #memeteam {
-  width: 20vw;
-  height: 20vw;
+  width: 47vw;
+  height: 36vw;
 }
