@@ -38,6 +38,7 @@ const Home: React.FC = () => {
 
   return (
     <div className={"home"}>
+      <div id="home-background" />
       {/*<div className="scroll-container">
         <div className="scroll-section" />
         <div className="scroll-section" />

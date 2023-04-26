@@ -50,4 +50,5 @@ h4, h5 {
   background-color: black;
   position: fixed;
   z-index: -5;
+  overflow: auto;
 }

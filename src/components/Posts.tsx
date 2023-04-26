@@ -27,6 +27,7 @@ const Posts: React.FC = () => {
 
   return (
     <div className='posts-page'>
+      <div id="posts-page-background"/>
       <h1 className='title'>Posts</h1>
       <div className='sticky-note-container'>
         {loading || posts.length === 0 ? null : posts.map((post) => (
