@@ -15,7 +15,7 @@
   text-align: center;
   word-wrap: break-word;
 }
-h3, p {
+.sticky-note-content, .sticky-note-title {
   color: #0dc300;
 }
 

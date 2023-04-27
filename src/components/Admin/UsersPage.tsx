@@ -4,6 +4,7 @@ import { User } from '../../types';
 import { retrieveToken } from '../Security';
 import React from 'react';
 import { useAuth } from '../../AuthContext';
+import "../../styles/Admin/UsersPage.css";
 
 function UsersPage() {
   const [users, setUsers] = useState<User[]>([]);
@@ -55,6 +56,14 @@ function UsersPage() {
       );
       setUsers(updatedUsers);
       setSelected([]);
+      const response = await fetch('http://localhost:8000/admin/users', {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            'Authorization': token,
+          },
+          body: JSON.stringify({users: selected}),
+        });
     } catch (error) {
       console.error(error);
     }
