@@ -4,6 +4,7 @@ import { Button, Checkbox, Container, Grid, Typography } from '@mui/material';
 import { Post } from '../../types';
 import {useAuth} from '../../AuthContext';
 import { retrieveToken } from '../Security';
+import "../../styles/Admin/VerifyPostsPage.css";
 
 function VerifyPostsPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -68,7 +69,7 @@ function VerifyPostsPage() {
   }
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" id="verify-posts-container">
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="h4" align="center">
@@ -76,7 +77,7 @@ function VerifyPostsPage() {
           </Typography>
         </Grid>
         {posts.map((post) => (
-          <Grid item xs={12} key={post.id}>
+          <Grid item xs={12} key={post.id} className='post-to-be-verified'>
             <Grid container spacing={2}>
               <Grid item xs={9}>
                 <Typography variant="h6">{post.title}</Typography>
@@ -84,7 +85,7 @@ function VerifyPostsPage() {
                 <Typography variant="body1">{post.content}</Typography>
                 <Typography variant="caption">{`Created at: ${post.created_at}`}</Typography>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={3} className='verify-posts-checkbox'>
                 <Checkbox
                   checked={selected.includes(post)}
                   onChange={() => handleCheckboxChange(post)}

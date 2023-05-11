@@ -1,0 +1,14 @@
+.post-to-be-verified {
+    background-color: #8a8a8a5a;
+    padding-bottom: 2rem;
+    border-radius: 20px;
+}
+#verify-posts-container {
+    margin-top: 100px;
+}
+.verify-posts-checkbox {
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+    display: flex;
+}

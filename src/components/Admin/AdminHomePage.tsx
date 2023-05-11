@@ -4,6 +4,8 @@ import { Button, Container, Grid, Typography } from '@mui/material';
 import '../../styles/Admin/AdminHomePage.css';
 import { Link } from 'react-router-dom';
 import MEMESat_1_Logo from '../../assets/MEMESAT-1.png'
+/*import Sidebar from '../Sidebar/Sidebar';
+import { SidebarData } from '../Sidebar/SidebarData'*/
 
 
 function AdminHomePage() {
@@ -16,8 +18,8 @@ function AdminHomePage() {
   return (
     <div className={"admin-home"}>
       <div id="admin-home-background" />
-      <img src={MEMESat_1_Logo} className='admin-home-memelogo'/>
-
+      {/*<img src={MEMESat_1_Logo} className='admin-home-memelogo'/>*/}
+      {/*<Sidebar sidebarData={SidebarData} />*/}
       <Container maxWidth="md" className={"admin-home-container"}>
         <Grid container spacing={4}>
           <Grid item xs={12} className={"admin-home-title"}>
