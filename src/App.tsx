@@ -10,6 +10,7 @@ import AdminHomePage from './components/Admin/AdminHomePage'
 import { AuthProvider } from './AuthContext';
 import VerifyPostsPage from './components/Admin/VerifyPostsPage';
 import UsersPage from './components/Admin/UsersPage';
+import TeamHome from './components/Team/TeamHome';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/admin" element={<AdminHomePage />} />
           <Route path="/admin/verify-posts" element={<VerifyPostsPage />} />
           <Route path="/admin/users" element={<UsersPage />} />
+          <Route path="/team/home" element={<TeamHome />}/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

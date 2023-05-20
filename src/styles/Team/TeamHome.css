@@ -1,0 +1,36 @@
+.app {
+    display: flex;
+    margin-top: 200px;
+  }
+  
+  .task-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .add-task-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .edit-task-button,
+  .delete-task-button {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .edit-task-button:hover,
+  .delete-task-button:hover {
+    background-color: #5a6269;
+  }
