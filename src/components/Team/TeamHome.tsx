@@ -123,11 +123,11 @@ const TeamHome: React.FC = () => {
       {selectedTask ? (
         <TaskDetails task={selectedTask} onBack={() => setSelectedTask(null)} />
       ) : (
-        <div>
+        <div className='team-home-div'>
           <Button variant="contained" onClick={() => setIsAddingTask(true)}>
             Add Task
           </Button>
-          <TableContainer>
+          <TableContainer className='task-table'>
             <Table>
               <TableHead>
                 <TableRow>

@@ -1,6 +1,9 @@
 .app {
     display: flex;
-    margin-top: 200px;
+    margin-top: 50px;
+    width: 100%;
+    background-color: #444444;
+    position: fixed;
   }
   
   .task-row {
@@ -34,3 +37,44 @@
   .delete-task-button:hover {
     background-color: #5a6269;
   }
+  .task-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #292929;
+    color: #ffffff;
+    table-layout: fixed;
+  }
+  p {
+    color: white;
+  }
+  .task-table th,
+  .task-table td {
+    padding: 12px;
+    border-bottom: 1px solid #444444;
+    text-align: left;
+    color: white;
+  }
+  
+  .task-table th {
+    background-color: #1f1f1f;
+    font-weight: 600;
+  }
+  
+  .task-table td {
+    background-color: #292929;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .task-table tr:nth-child(even) {
+    background-color: #333333;
+  }
+  
+  .task-table tr:hover {
+    background-color: #3b3b3b;
+  }
+.team-home-div {
+    width: 60%;
+    overflow-y: auto;
+}
