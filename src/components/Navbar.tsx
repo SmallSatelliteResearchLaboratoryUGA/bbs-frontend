@@ -94,6 +94,7 @@ function Redirects(props: {id?: string}) {
     return (
         <div className={"redirects"} id={props.id}>
                 <Link to="/" className="link">Home</Link>
+                <Link to="/dashboard" className='link'>Dashboard</Link>
                 <Link to="/posts" className="link">Posts</Link>
                 {isLoggedIn && (
                     <Link to="/new-post" className={"link"}>New Post</Link>

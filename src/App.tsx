@@ -11,6 +11,7 @@ import { AuthProvider } from './AuthContext';
 import VerifyPostsPage from './components/Admin/VerifyPostsPage';
 import UsersPage from './components/Admin/UsersPage';
 import TeamHome from './components/Team/TeamHome';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard/>} /> 
           <Route path="/posts" element={<Posts />} />
           <Route path="/post/:id" element={<Post />} />
           <Route path="/new-post" element={<NewPost />} />
