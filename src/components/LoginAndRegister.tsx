@@ -48,12 +48,13 @@ const LoginAndRegister: React.FC = () => {
 
 
   const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
         const response = await fetch("http://localhost:8000/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({ email, password }),
         });
