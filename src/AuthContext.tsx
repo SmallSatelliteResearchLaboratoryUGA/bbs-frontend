@@ -86,7 +86,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         setRoleId(json.role_id);
       }
       else {
-        console.log("No role id. " + json.role_id);
+        console.log("No role id. " + json);
+        console.log("Status: " + response.status)
       }
     } else {
       console.log("Auto login failed");
