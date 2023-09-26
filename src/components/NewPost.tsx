@@ -9,6 +9,7 @@ const NewPost: React.FC = () => {
   const [callsign, setCallsign] = useState('');
   const [content, setContent] = useState('');
   const history = useNavigate();
+  
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();

@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { retrieveToken, storeToken } from './components/Security';
-const backend_url = `http://localhost:8000`;
+export const backend_url = `http://localhost:8000`;
 
 interface AuthState {
   isLoggedIn: boolean;
@@ -54,7 +54,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
       setRoleId(1);
       setIsLoggedIn(false);
       if (!token) return;
-      const response = await fetch("http://localhost:8000/user/token", {
+      const response = await fetch(`${backend_url}/user/token`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

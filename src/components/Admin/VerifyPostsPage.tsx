@@ -81,7 +81,7 @@ function VerifyPostsPage() {
               <Grid item xs={9}>
                 <Typography variant="h6">{post.title}</Typography>
                 <Typography variant="subtitle1">{`${post.name} (${post.callsign})`}</Typography>
-                <Typography variant="body1">{post.content}</Typography>
+                <Typography variant="body1" color={'black'}>{post.content}</Typography>
                 <Typography variant="caption">{`Created at: ${post.created_at}`}</Typography>
               </Grid>
               <Grid item xs={3}>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/LoginAndRegister.css";
+//import "../styles/LoginAndRegister.css";
 
 
 interface RegisterFormProps {
@@ -8,43 +8,56 @@ interface RegisterFormProps {
   setEmail: (email: string) => void;
   password: string;
   setPassword: (password: string) => void;
+  callsign: string;
+  setCallsign: (callsign: string) => void;
 }
 
 const RegisterForm: React.FC<RegisterFormProps> = (props: RegisterFormProps) => {
-  const {handleRegister, email, setEmail, password, setPassword} = props
+  const {handleRegister, email, setEmail, password, setPassword, callsign, setCallsign} = props
+
+  const formGroup = "login-form-group";
+  const formLabel = "login-form-label";
+  const formControl = "login-form-control";
 
   return (
-    <div className={"form-container"}>
-      <div className={"form-box"}>
-      <h2 className={"form-title"}>Register</h2>
-        <form onSubmit={handleRegister}>
-          <div className={"form-group"}>
-            <label className={"form-label"}>Email</label>
-            <input
-              className={"form-control"}
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className={"form-group"}>
-            <label className={"form-label"}>Password</label>
-            <input
-              className={"form-control"}
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button className={"submit-button"} type="submit">
-            Register
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+    <div>
+      <h2>Register</h2>
+      <form onSubmit={handleRegister}>
+        <div className={formGroup}>
+          <label className={formLabel}>Email</label>
+          <input
+            className={formControl}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className={formGroup}>
+          <label className={formLabel}>Callsign (Optional)</label>
+          <input
+            className={formControl}
+            value={callsign}
+            onChange={(e) => setCallsign(e.target.value)}
+            required
+          />
+        </div>
+        <div className={formGroup}>
+          <label className={formLabel}>Password</label>
+          <input
+            className={formControl}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button className={"login-submit-button"} type="submit">
+          Register
+        </button>
+    </form>
+  </div>);
 };
 
 export default RegisterForm;

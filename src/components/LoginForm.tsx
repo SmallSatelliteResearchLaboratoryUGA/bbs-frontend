@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/LoginAndRegister.css";
+import "../styles/Login.css";
 
 interface LoginFormProps {
     handleLogin: (e: React.FormEvent) => Promise<void>;
@@ -10,33 +10,36 @@ interface LoginFormProps {
   }
 
 const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
-  const {handleLogin, email, setEmail, password, setPassword} = props
+  const {handleLogin, email, setEmail, password, setPassword} = props;
+  const formGroup = "login-form-group";
+  const formLabel = "login-form-label";
+  const formControl = "login-form-control";
   return (
-    <div className={"form-container"}>
-      <div className={"form-box"}>
-        <h2 className={"form-title"}>Login</h2>
+    <div className={"login-form-container"}>
+      <div className={"login-form-box"}>
+        <h2 className={"login-form-title"}>Login</h2>
         <form onSubmit={handleLogin}>
-          <div className={"form-group"}>
-            <label className={"form-label"}>Email</label>
+          <div className={formGroup}>
+            <label className={formLabel}>Email</label>
             <input
-              className={"form-control"}
+              className={formControl}
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <div className={"form-group"}>
+          <div className={formGroup}>
             <label className={"form-label"}>Password</label>
             <input
-              className={"form-control"}
+              className={formControl}
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          <button className={"submit-button"} type="submit">
+          <button className={"login-submit-button"} type="submit">
             Login
           </button>
         </form>

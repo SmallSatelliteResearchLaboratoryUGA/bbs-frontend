@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Post } from '../types';
 import StickyNote from './StickyNote';
 import '../styles/Posts.css'
+import { NEW_POST_PATH } from '../App';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 const Posts: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
+  const { isLoggedIn } = useAuth();
+
 
   // Fetch posts (replace with a real API call)
   useEffect(() => {
@@ -28,7 +33,10 @@ const Posts: React.FC = () => {
   return (
     <div className='posts-page'>
       <div id="posts-page-background"/>
-      <h1 className='title'>Posts</h1>
+      <h1 className='title'>Bulletin Board System (BBS)</h1>
+      {isLoggedIn && (
+                    <Link to={NEW_POST_PATH} className='link'>New Post</Link>
+                )}
       <div className='sticky-note-container'>
         {loading || posts.length === 0 ? null : posts.map((post) => (
           <div key={post.id}>

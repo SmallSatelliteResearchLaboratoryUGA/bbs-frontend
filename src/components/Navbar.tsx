@@ -5,6 +5,7 @@ import LG2S from '../assets/LG2S.png'
 import MEMESat_1_Logo from '../assets/MEMESAT-1.png'
 import { useAuth } from '../AuthContext';
 import { Spin as Hamburger } from 'hamburger-react'
+import { ADMIN_PATH, BBS_PATH, DASHBOARD_PATH, HOME_PATH, LOGIN_PATH } from '../App';
 
 const Navbar: React.FC = () => {
     const [isOpen, setOpen] = useState(false);
@@ -93,21 +94,18 @@ function Redirects(props: {id?: string}) {
     const {isLoggedIn, logout, role_id} = useAuth();
     return (
         <div className={"redirects"} id={props.id}>
-                <Link to="/" className="link">Home</Link>
-                <Link to="/dashboard" className='link'>Dashboard</Link>
-                <Link to="/posts" className="link">Posts</Link>
-                {isLoggedIn && (
-                    <Link to="/new-post" className={"link"}>New Post</Link>
-                )}
+                <Link to={HOME_PATH} className="link">Home</Link>
+                <Link to={DASHBOARD_PATH} className='link'>Dashboard</Link>
+                <Link to={BBS_PATH} className="link">BBS</Link>
                 {role_id === 2 && (
-                    <Link to="/admin" className='link'>Admin</Link>
+                    <Link to={ADMIN_PATH} className='link'>Admin</Link>
                 )}
                 {isLoggedIn ? (
-                    <Link to="/" className="link" onClick={logout}>
+                    <Link to={HOME_PATH} className="link" onClick={logout}>
                         Logout
                     </Link>
                 ) : (
-                    <Link to="/login" className="link">Login</Link>
+                    <Link to={LOGIN_PATH} className="link">Login</Link>
                 )}
         </div>
     )
