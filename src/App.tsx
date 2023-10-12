@@ -12,10 +12,12 @@ import VerifyPostsPage from './components/Admin/VerifyPostsPage';
 import UsersPage from './components/Admin/UsersPage';
 import TeamHome from './components/Team/TeamHome';
 import Dashboard from './components/Dashboard';
+import About from './components/About';
 
 
 export const HOME_PATH = "/";
 export const DASHBOARD_PATH = "/dashboard";
+export const ABOUT_PATH = "/about";
 export const BBS_PATH = "/bbs";
 export const POST_PATH = "/post/:id";
 export const NEW_POST_PATH = "/new-post";
@@ -33,6 +35,7 @@ function App() {
         <Routes>
           <Route path={HOME_PATH} element={<Home />} />
           <Route path={DASHBOARD_PATH} element={<Dashboard/>} /> 
+          <Route path={ABOUT_PATH} element={<About />} /> 
           <Route path={BBS_PATH} element={<Posts />} />
           <Route path={POST_PATH} element={<Post />} />
           <Route path={NEW_POST_PATH} element={<NewPost />} />
