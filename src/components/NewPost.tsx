@@ -39,10 +39,10 @@ const NewPost: React.FC = () => {
   };
 
   return (
-    <div className={"new-post-page"}>
-      <h1>Create a New Post</h1>
+    <div className={"new-post-page, row"} id='new-post-background'>
+      <div className='column'>
+      <h1 className="new-post-title">Create a New Post</h1>
       <form onSubmit={handleSubmit} className={"submit-form"}>
-        
           <label htmlFor="title">Title:</label>
           <input
             type="text"
@@ -51,34 +51,65 @@ const NewPost: React.FC = () => {
             onChange={(event) => setTitle(event.target.value)}
             required
           />
-       
-      
           <label htmlFor="name">Name:</label>
           <input
             id="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
             required
-          ></input>
-        
+          ></input>     
           <label htmlFor="callsign">Callsign:</label>
           <input
             id="callsign"
             value={callsign}
             onChange={(event) => setCallsign(event.target.value)}
             required
-          ></input>
-        
+          ></input>       
           <label htmlFor="content">Content:</label>
           <textarea
             id="content"
             value={content}
             onChange={(event) => setContent(event.target.value)}
             required
-          ></textarea>
-        
+          ></textarea>       
         <button type="submit">Submit</button>
       </form>
+      </div>
+      <div className='column'>
+      <h1 className="new-post-title">Create a New Post</h1>
+      <form onSubmit={handleSubmit} className={"submit-form"}>     
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            required
+          />     
+          <label htmlFor="name">Name:</label>
+          <input
+            id="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            required
+          ></input>       
+          <label htmlFor="callsign">Callsign:</label>
+          <input
+            id="callsign"
+            value={callsign}
+            onChange={(event) => setCallsign(event.target.value)}
+            required
+          ></input>       
+          <label htmlFor="content">Content:</label>
+          <textarea
+            id="content"
+            value={content}
+            onChange={(event) => setContent(event.target.value)}
+            required
+          ></textarea>       
+        <button type="submit">Submit</button>
+      </form>
+      </div>
     </div>
   );
 };
