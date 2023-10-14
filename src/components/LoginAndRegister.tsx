@@ -103,7 +103,7 @@ const LoginAndRegister: React.FC = () => {
 
 
     return (
-      <div>
+      <div id="login-background">
       <div className={"login-container"}>
         <LoginForm handleLogin={handleLogin} email={loginEmail} setEmail={setLoginEmail} password={loginPassword} setPassword={setLoginPassword}/>
       </div>

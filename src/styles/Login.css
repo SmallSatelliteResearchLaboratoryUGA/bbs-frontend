@@ -3,6 +3,20 @@
     min-width: 100%;
     padding-top: 0px;
     justify-content: center;
+    z-index: 1000;
+}
+
+#login-background {
+  margin-top: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-image: url("../assets/fdb21c0e4f3dbb6ccd9a63c68fce8645.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  overflow: auto;
 }
 
 .login-form-container {
