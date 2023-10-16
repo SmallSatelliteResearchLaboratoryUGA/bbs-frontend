@@ -108,7 +108,7 @@ const LoginAndRegister: React.FC = () => {
         <LoginForm handleLogin={handleLogin} email={loginEmail} setEmail={setLoginEmail} password={loginPassword} setPassword={setLoginPassword}/>
       </div>
       <div className={"login-container"}>
-        <Button onClick={handleOpenRegistration}>
+        <Button className="signup" onClick={handleOpenRegistration}>
           New here?
         </Button>
       </div>
