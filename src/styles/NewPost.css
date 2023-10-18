@@ -32,8 +32,6 @@
 .new-post-title {
   font-size: 3vw;
   margin-bottom: 1rem;
-  top: 0; 
-  left: 25px;
   width: fit-content;
   transition: 50vw 1s linear;
   color: transparent;
@@ -44,6 +42,14 @@
 }
 
 .submit-form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    max-width: 400px;
+  }
+
+  .packet-form {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import "../styles/About.css"
 import MemeTeam from "../assets/meme team.jpg"
-import MeetTheTeam from './Home/MeetTheTeam';
 
 const About: React.FC = () => {
 
