@@ -99,8 +99,6 @@ body, html {
   .box {
     height: 20%;
     display: flex;
-    align-items: center;
-    justify-content: left;
     background-color: #00000077;
     width: 80%;
     margin: 15vh 2vh 2vh 17vh;
@@ -113,6 +111,19 @@ body, html {
     width: 40em;
     text-align: left;
     font-size: larger;
+    display: flex;
+  }
+
+  .left {
+    padding: 10px;
+    width: 50%;
+  }
+
+  .right {
+    float: right;
+    padding: 10px;
+    display: flex;
+    width: 50%;
   }
 
   .MeetTheTeamContainer {
@@ -120,6 +131,7 @@ body, html {
     position: absolute;
     top: 120vh;
   }
+
   #meet-the-team-title {
     font-size: 6vw;
     float: left;
@@ -132,6 +144,7 @@ body, html {
     -webkit-text-stroke-color: white;
     font-style: italic;
   }
+
   #memeteam {
     width: 25vw;
     height: 20vw;
