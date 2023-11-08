@@ -5,7 +5,7 @@ import LG2S from '../assets/LG2S.png'
 import MEMESat_1_Logo from '../assets/MEMESAT-1.png'
 import { useAuth } from '../AuthContext';
 import { Spin as Hamburger } from 'hamburger-react'
-import { ADMIN_PATH, BBS_PATH, DASHBOARD_PATH, HOME_PATH, LOGIN_PATH } from '../App';
+import { ADMIN_PATH, BBS_PATH, DASHBOARD_PATH, ABOUT_PATH, HOME_PATH, LOGIN_PATH } from '../App';
 
 const Navbar: React.FC = () => {
     const [isOpen, setOpen] = useState(false);
@@ -95,6 +95,7 @@ function Redirects(props: {id?: string}) {
     return (
         <div className={"redirects"} id={props.id}>
                 <Link to={HOME_PATH} className="link">Home</Link>
+                <Link to={ABOUT_PATH} className="link">About</Link>
                 <Link to={DASHBOARD_PATH} className='link'>Dashboard</Link>
                 <Link to={BBS_PATH} className="link">BBS</Link>
                 {role_id === 2 && (

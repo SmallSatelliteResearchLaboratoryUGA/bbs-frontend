@@ -3,6 +3,9 @@ import "../styles/Home.css"
 import Earth from "../assets/earth.png" 
 import memebeamer from "../assets/lil-meme.png"
 import MeetTheTeam from './Home/MeetTheTeam';
+import { useAuth } from '../AuthContext';
+import { LOGIN_PATH } from '../App';
+import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
 
@@ -54,10 +57,10 @@ const Home: React.FC = () => {
           <img src={memebeamer} className="moon" />
         </div>
       </div>
-      <MeetTheTeam />
     </div>
   );
 };
+
 
 export const useScrollDirection = (): 'up' | 'down' => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');

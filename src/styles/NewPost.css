@@ -6,9 +6,50 @@
     margin-top: 40px;
 }
 
+#new-post-background {
+  margin-top: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-image: url("../assets/fdb21c0e4f3dbb6ccd9a63c68fce8645.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  overflow: auto;
+}
 
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 15vh 22vh 0 22vh;
+}
+
+.new-post-title {
+  font-size: 3vw;
+  margin-bottom: 1rem;
+  width: fit-content;
+  transition: 50vw 1s linear;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+  position: relative;
+  text-align: center;
+}
 
 .submit-form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    max-width: 400px;
+  }
+
+  .packet-form {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
