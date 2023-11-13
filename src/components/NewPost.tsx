@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../styles/NewPost.css"
 import { retrieveToken } from './Security';
+import Toggle from './Toggle';
 
 const NewPost: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -70,7 +71,9 @@ const NewPost: React.FC = () => {
             value={content}
             onChange={(event) => setContent(event.target.value)}
             required
-          ></textarea>       
+          ></textarea>      
+          <Toggle /> 
+          <h3>Self Generate Packet</h3>
         <button type="submit">Submit</button>
       </form>
     </div>
