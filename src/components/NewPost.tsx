@@ -10,6 +10,7 @@ const NewPost: React.FC = () => {
   const [callsign, setCallsign] = useState('');
   const [content, setContent] = useState('');
   const history = useNavigate();
+  const [value, setValue] = useState(false);
   
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -72,7 +73,10 @@ const NewPost: React.FC = () => {
             onChange={(event) => setContent(event.target.value)}
             required
           ></textarea>      
-          <Toggle /> 
+          <Toggle 
+            isOn={value}
+            handleToggle={() => setValue(!value)}
+          /> 
           <h3>Self Generate Packet</h3>
         <button type="submit">Submit</button>
       </form>
