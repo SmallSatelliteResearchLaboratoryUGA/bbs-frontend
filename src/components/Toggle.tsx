@@ -3,7 +3,7 @@ import "../styles/Toggle.css";
 
 const Toggle = ({ isOn, handleToggle}: any) => {
   return (
-    <>
+    <div>
       <input
       checked={isOn}
       onChange={handleToggle}
@@ -18,7 +18,8 @@ const Toggle = ({ isOn, handleToggle}: any) => {
       >
         <span className={`react-toggle-button`} />
       </label>
-    </>
+      <h3>Self Generate Packet</h3>
+    </div>
   );
 };
 

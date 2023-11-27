@@ -77,7 +77,6 @@ const NewPost: React.FC = () => {
             isOn={value}
             handleToggle={() => setValue(!value)}
           /> 
-          <h3>Self Generate Packet</h3>
         <button type="submit">Submit</button>
       </form>
     </div>
