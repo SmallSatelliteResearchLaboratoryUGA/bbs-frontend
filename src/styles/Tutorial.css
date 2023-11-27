@@ -2,7 +2,7 @@ body, html {
     height: 100%;
   }
   
-  .about {
+  .tutorial {
     display: flex;
     flex-direction: column;
     color: white;
@@ -13,7 +13,7 @@ body, html {
     text-align: center;
   }
   
-  #about-background {
+  #tutorial-background {
     margin-top: 0;
     bottom: 0;
     top: 0;
@@ -27,7 +27,7 @@ body, html {
     overflow: auto;
   }
   
-  .about-title {
+  .tutorial-title {
     font-size: 5vw;
     margin-bottom: 0rem;
     top: 2vh; 
@@ -40,7 +40,7 @@ body, html {
     position: relative;
   }
 
-  .about-statement {
+  .tutorial-statement {
     font-size: 3vw;
     top: 1vh; 
     width: fit-content;
