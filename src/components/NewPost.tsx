@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../styles/NewPost.css"
 import { retrieveToken } from './Security';
+import Toggle from './Toggle';
 
 const NewPost: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -9,6 +10,7 @@ const NewPost: React.FC = () => {
   const [callsign, setCallsign] = useState('');
   const [content, setContent] = useState('');
   const history = useNavigate();
+  const [value, setValue] = useState(false);
   
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -65,12 +67,21 @@ const NewPost: React.FC = () => {
             required
           ></input>       
           <label htmlFor="content">Content:</label>
+          {value  && (
+                    <input
+                    type="file"
+                    ></input>
+                )}
           <textarea
             id="content"
             value={content}
             onChange={(event) => setContent(event.target.value)}
             required
-          ></textarea>       
+          ></textarea>      
+          <Toggle 
+            isOn={value}
+            handleToggle={() => setValue(!value)}
+          /> 
         <button type="submit">Submit</button>
       </form>
     </div>

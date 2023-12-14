@@ -1,0 +1,42 @@
+.react-toggle-checkbox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  .react-toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 65px;
+    height: 35px;
+    background: grey;
+    border-radius: 100px;
+    position: relative;
+    transition: background-color .2s;
+    float: left;
+  }
+  
+  .react-toggle-label .react-toggle-button {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 31px;
+    border-radius: 45px;
+    transition: 0.2s;
+    background: #fff;
+  }
+  
+  .react-toggle-checkbox:checked + .react-toggle-label .react-toggle-button {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+  }
+
+  h3 {
+    margin: 18px 65px 20px 80px;
+    position: relative;
+  }
+
+  
