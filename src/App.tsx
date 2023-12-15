@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Posts from './components/BBS';
 import Post from './components/Post';
 import NewPost from './components/NewPost';
+import NewMeme from './components/NewMeme';
 import LoginAndRegister from './components/LoginAndRegister';
 import AdminHomePage from './components/Admin/AdminHomePage'
 import { AuthProvider } from './AuthContext';
@@ -21,6 +22,7 @@ export const ABOUT_PATH = "/about";
 export const BBS_PATH = "/bbs";
 export const POST_PATH = "/post/:id";
 export const NEW_POST_PATH = "/new-post";
+export const NEW_MEME_PATH = "/new-meme";
 export const LOGIN_PATH = "/login";
 export const ADMIN_PATH = "/admin";
 export const ADMIN_VERIFY_POSTS_PATH = "/admin/verify-posts";
@@ -39,6 +41,7 @@ function App() {
           <Route path={BBS_PATH} element={<Posts />} />
           <Route path={POST_PATH} element={<Post />} />
           <Route path={NEW_POST_PATH} element={<NewPost />} />
+          <Route path={NEW_MEME_PATH} element={<NewMeme />} />
           <Route path={LOGIN_PATH} element={<LoginAndRegister />} />
           <Route path={ADMIN_PATH} element={<AdminHomePage />} />
           <Route path={ADMIN_VERIFY_POSTS_PATH} element={<VerifyPostsPage />} />

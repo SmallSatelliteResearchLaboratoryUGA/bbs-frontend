@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import "../styles/NewPost.css"
+import "../styles/NewMeme.css"
 import { retrieveToken } from './Security';
-import { NEW_MEME_PATH } from '../App';
+import { NEW_POST_PATH } from '../App';
 
-
-const NewPost: React.FC = () => {
+const NewMeme: React.FC = () => {
   const [title, setTitle] = useState('');
   const [name, setName] = useState('');
   const [callsign, setCallsign] = useState('');
@@ -44,7 +43,7 @@ const NewPost: React.FC = () => {
 
   return (
     <div className={"new-post-page"} id='new-post-background'>
-      <h1 className="new-post-title">Create a New Post</h1>
+      <h1 className="new-post-title">Create a New Meme</h1>
       <form onSubmit={handleSubmit} className={"submit-form"}>
           <label htmlFor="title">Title:</label>
           <input
@@ -69,21 +68,16 @@ const NewPost: React.FC = () => {
             required
           ></input>       
           <label htmlFor="content">Content:</label>
-          <textarea
-            id="content"
-            value={content}
-            onChange={(event) => setContent(event.target.value)}
-            required
-          ></textarea>      
+          <input type="file"/>  
         <button type="submit">Submit</button>
       </form>
-      <Link to={NEW_MEME_PATH}>
+      <Link to={NEW_POST_PATH}>
         <button className='switch-meme'>
-            <p>Post Meme!</p>
+            <p>Post Message!</p>
         </button>
       </Link>
     </div>
   );
 };
 
-export default NewPost;
+export default NewMeme;
