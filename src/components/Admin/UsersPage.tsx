@@ -90,7 +90,7 @@ function UsersPage() {
                 <Grid container spacing={2}>
                   <Grid item xs={9}>
                     <Typography variant="subtitle1" color={"black"}>{user.username}</Typography>
-                    <Typography variant="body1">{user.email}</Typography>
+                    <Typography variant="body1" color={"black"}>{user.email}</Typography>
                     <Typography variant="caption">
                       Role: {user.role_id}
                     </Typography>
