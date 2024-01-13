@@ -5,11 +5,17 @@ import LG2S from '../assets/LG2S.png'
 import MEMESat_1_Logo from '../assets/MEMESAT-1.png'
 import { useAuth } from '../AuthContext';
 import { Spin as Hamburger } from 'hamburger-react'
-import { ADMIN_PATH, BBS_PATH, DASHBOARD_PATH, ABOUT_PATH, HOME_PATH, LOGIN_PATH } from '../App';
+import { ADMIN_PATH, BBS_PATH, DASHBOARD_PATH, ABOUT_PATH, HOME_PATH, LOGIN_PATH, USER_PATH } from '../App';
+import { Post as PostType } from '../types';
+import Post from './Post';
+
 
 const Navbar: React.FC = () => {
     const [isOpen, setOpen] = useState(false);
+    const [post, setPost] = useState<PostType | null>(null);
     const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+
+    
     return (
         <nav>
             <div className={"logos"}>
@@ -100,6 +106,13 @@ function Redirects(props: {id?: string}) {
                 <Link to={BBS_PATH} className="link">BBS</Link>
                 {role_id === 2 && (
                     <Link to={ADMIN_PATH} className='link'>Admin</Link>
+                )}
+                {isLoggedIn ? (
+                    <Link to={USER_PATH} className="link">
+                        User
+                    </Link>
+                ) : (
+                    <></>
                 )}
                 {isLoggedIn ? (
                     <Link to={HOME_PATH} className="link" onClick={logout}>

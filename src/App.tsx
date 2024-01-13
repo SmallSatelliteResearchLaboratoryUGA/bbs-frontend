@@ -9,6 +9,7 @@ import LoginAndRegister from './components/LoginAndRegister';
 import AdminHomePage from './components/Admin/AdminHomePage'
 import { AuthProvider } from './AuthContext';
 import VerifyPostsPage from './components/Admin/VerifyPostsPage';
+import User from './components/User';
 import UsersPage from './components/Admin/UsersPage';
 import TeamHome from './components/Team/TeamHome';
 import Dashboard from './components/Dashboard';
@@ -22,6 +23,7 @@ export const BBS_PATH = "/bbs";
 export const POST_PATH = "/post/:id";
 export const NEW_POST_PATH = "/new-post";
 export const LOGIN_PATH = "/login";
+export const USER_PATH = "/user";
 export const ADMIN_PATH = "/admin";
 export const ADMIN_VERIFY_POSTS_PATH = "/admin/verify-posts";
 export const ADMIN_USERS_PATH = "/admin/users";
@@ -40,6 +42,7 @@ function App() {
           <Route path={POST_PATH} element={<Post />} />
           <Route path={NEW_POST_PATH} element={<NewPost />} />
           <Route path={LOGIN_PATH} element={<LoginAndRegister />} />
+          <Route path={USER_PATH} element={<User />} />
           <Route path={ADMIN_PATH} element={<AdminHomePage />} />
           <Route path={ADMIN_VERIFY_POSTS_PATH} element={<VerifyPostsPage />} />
           <Route path={ADMIN_USERS_PATH} element={<UsersPage />} />
