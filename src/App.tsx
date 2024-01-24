@@ -14,8 +14,6 @@ import UsersPage from './components/Admin/UsersPage';
 import TeamHome from './components/Team/TeamHome';
 import Dashboard from './components/Dashboard';
 import About from './components/About';
-import Sidebar from './components/AdminBar';
-
 
 export const HOME_PATH = "/";
 export const DASHBOARD_PATH = "/dashboard";
