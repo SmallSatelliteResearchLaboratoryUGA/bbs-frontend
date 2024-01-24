@@ -6,6 +6,7 @@ import MeetTheTeam from './Home/MeetTheTeam';
 import { useAuth } from '../AuthContext';
 import { LOGIN_PATH } from '../App';
 import { Link } from 'react-router-dom';
+import AdminBar from './AdminBar';
 
 const Home: React.FC = () => {
 
@@ -41,6 +42,7 @@ const Home: React.FC = () => {
 
   return (
     <div className={"home"}>
+      <AdminBar />
       <div id="home-background" />
       {/*<div className="scroll-container">
         <div className="scroll-section" />

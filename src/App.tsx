@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Navbar from './components/Navbar';
+import AdminBar from './components/AdminBar';
 import Home from './components/Home';
 import Posts from './components/BBS';
 import Post from './components/Post';
@@ -13,6 +14,7 @@ import UsersPage from './components/Admin/UsersPage';
 import TeamHome from './components/Team/TeamHome';
 import Dashboard from './components/Dashboard';
 import About from './components/About';
+import Sidebar from './components/AdminBar';
 
 
 export const HOME_PATH = "/";
@@ -32,6 +34,7 @@ function App() {
     <AuthProvider>
         <BrowserRouter>
         <Navbar />
+        <AdminBar />
         <Routes>
           <Route path={HOME_PATH} element={<Home />} />
           <Route path={DASHBOARD_PATH} element={<Dashboard/>} /> 
