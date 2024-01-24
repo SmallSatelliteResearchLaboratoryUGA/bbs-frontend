@@ -109,7 +109,7 @@ function Redirects(props: {id?: string}) {
                 )}
                 {isLoggedIn ? (
                     <Link to={USER_PATH} className="link">
-                        User
+                        Profile
                     </Link>
                 ) : (
                     <></>

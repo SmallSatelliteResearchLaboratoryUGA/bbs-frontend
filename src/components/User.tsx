@@ -1,41 +1,50 @@
 import React, { useEffect, useState, useRef } from 'react';
 import "../styles/User.css"
-import AboutBox from './AboutBox';
+import PostBox from './PostBox';
+import StickyNote from './StickyNote';
+import { Post } from '../types';
+import { backend_url, useAuth } from '../AuthContext';
+import { useNavigate } from "react-router-dom"
+import { storeToken } from './Security';
 
 const User: React.FC = () => {
 
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect (() => {
+    const fetchCallSign = async () => {
+        const res = await fetch('http://localhost:8000/posts', {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const data: Post[] = JSON.parse(await res.json());
+      console.log("Data for posts object: " + data);
+      setPosts(data);
+      setLoading(false);
+    };
+    fetchCallSign()
+  }, []);
+  
   return (
     <div className={"user"}>
       <div id="user-background" />
       <h1 className="user-title" id="user-title">
-        Welcome, !
+        Welcome!
       </h1>
-      <h3 className="user-statement" id="mission-statement"> 
-        Mission Statement
-      </h3>
-      <AboutBox title="About BBS" description="Link to tutorial(?)"/>
+      <PostBox title="Approved Posts..." description=""/>
+      <PostBox title="Pending Posts..." description=""/>
+      <div className='sticky-note-container'>
+        {loading || posts.length === 0 ? null : posts.map((post) => (
+          <div key={post.id}>
+            <StickyNote post={post} />
+          </div>
+        ))}
+      </div>
     </div>
   );
-};
-
-export const useScrollDirection = (): 'up' | 'down' => {
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
-  const [lastScrollPosition, setLastScrollPosition] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPosition = window.scrollY;
-      const direction = currentScrollPosition > lastScrollPosition ? 'down' : 'up';
-
-      setScrollDirection(direction);
-      setLastScrollPosition(currentScrollPosition);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollPosition]);
-
-  return scrollDirection;
 };
 
 export default User;
