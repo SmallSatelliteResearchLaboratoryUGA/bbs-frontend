@@ -14,11 +14,11 @@ function Bar(props: {id?: string}) {
     return (
         <div id={props.id}>
                 {role_id === 2 && (
-                    <div className={"sidenav active"}> 
-                        <Link to="/admin" className='link'>Admin Home</Link>
-                        <Link to="/admin/users" className='link'>Verify Users</Link>
-                        <Link to="/admin/verify-posts" className='link'>Verify Messages</Link>
-                        <Link to="/admin/verify-posts" className='link'>Verify Images</Link>
+                    <div className="sidenav"> 
+                        <Link to="/admin" className='admin-link'>Admin Home</Link>
+                        <Link to="/admin/users" className='admin-link'>Verify Users</Link>
+                        <Link to="/admin/verify-posts" className='admin-link'>Verify Messages</Link>
+                        <Link to="/admin/verify-posts" className='admin-link'>Verify Images</Link>
                     </div>
                 )}
         </div>

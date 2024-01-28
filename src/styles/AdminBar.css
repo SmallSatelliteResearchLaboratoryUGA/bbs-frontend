@@ -1,5 +1,5 @@
 .sidenav {
-    width: 100px;
+    width: 110px;
     background: grey;
     position: fixed;
     height: 100vh;
@@ -7,5 +7,27 @@
     transition: all 1s;
     left: 0px;
     top: 0;
+}
+
+.admin-link {
+    display: inline-block;
+    padding: 60px 18px;
+    text-decoration: none;
+    color: #ffffff80;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    width: fit-content;
+}
+
+.admin-link:hover {
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-link:focus {
+    /*outline: 2px solid #2980b9;*/
+    outline-offset: 2px;
 }
 
