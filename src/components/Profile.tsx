@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import "../styles/User.css"
+import "../styles/Profile.css"
 import PostBox from './PostBox';
 import StickyNote from './StickyNote';
 import { Post } from '../types';
@@ -7,7 +7,7 @@ import { backend_url, useAuth } from '../AuthContext';
 import { useNavigate } from "react-router-dom"
 import { storeToken } from './Security';
 
-const User: React.FC = () => {
+const Profile: React.FC = () => {
 
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -47,4 +47,4 @@ const User: React.FC = () => {
   );
 };
 
-export default User;
+export default Profile;
