@@ -1,20 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import "../styles/Profile.css"
 import PostBox from './PostBox';
 import StickyNote from './StickyNote';
 import { Post } from '../types';
-import { backend_url, useAuth } from '../AuthContext';
-import { useNavigate } from "react-router-dom"
-import { storeToken } from './Security';
 
 const Profile: React.FC = () => {
 
+  const { callsign } = useParams() as {callsign : string};
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect (() => {
-    const fetchCallSign = async () => {
-        const res = await fetch('http://localhost:8000/posts', {
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await fetch('http://localhost:8000/sign', {
         method: "GET",
         headers: {
           "Content-Type": "application/json"
@@ -25,7 +24,8 @@ const Profile: React.FC = () => {
       setPosts(data);
       setLoading(false);
     };
-    fetchCallSign()
+
+    fetchPosts()
   }, []);
   
   return (
