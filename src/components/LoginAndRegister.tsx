@@ -57,7 +57,7 @@ const LoginAndRegister: React.FC = () => {
         }
         // handle when token not found
         login(data.token);
-        navigate('/')
+        navigate('/');
     } 
     catch (error) {
         console.error("Error logging in:", error);

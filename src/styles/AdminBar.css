@@ -3,7 +3,7 @@
     background: grey;
     position: fixed;
     height: 100vh;
-    padding: 60px 5px 0 5px;
+    padding: 62px 5px 0 5px;
     transition: all 1s;
     left: 0px;
     top: 0;
@@ -11,8 +11,9 @@
 
 .admin-link {
     display: inline-block;
-    padding: 60px 18px;
+    padding: 60px 16px;
     text-decoration: none;
+    text-align: center;
     color: #ffffff80;
     font-weight: bold;
     font-size: 1rem;
@@ -27,7 +28,6 @@
 }
 
 .admin-link:focus {
-    /*outline: 2px solid #2980b9;*/
     outline-offset: 2px;
 }
 

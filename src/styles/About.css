@@ -25,6 +25,7 @@ body, html {
     background-repeat: no-repeat;
     position: fixed;
     overflow: auto;
+    z-index: -50;
   }
   
   .about-title {
